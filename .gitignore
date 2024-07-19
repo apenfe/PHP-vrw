@@ -7,3 +7,4 @@ bin/
 .Rproj.user
 .sonarlint
 *.code-workspace
+.idea/
