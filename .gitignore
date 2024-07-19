@@ -1,0 +1,9 @@
+/.metadata/
+*.metadata
+*.classpath
+*.project
+*.settings
+bin/
+.Rproj.user
+.sonarlint
+*.code-workspace
