@@ -99,7 +99,7 @@ select * from productos where proveedor regexp 'logi';
 select * from productos where proveedor regexp '[p]';
 select * from productos where proveedor regexp '[a-d]';
 select * from productos where proveedor regexp '^D';
-select * from productos where proveedor regexp 'o..i';
+select * from productos where proveedor regexp 'o.i';
 select * from productos where nombre regexp 'a.*a';
 
 #Funcion count
@@ -165,7 +165,7 @@ select ciudad, sexo, count(*) from visitantes group by ciudad, sexo;
 
 select ciudad, count(*) from visitantes where ciudad<>'Cordoba' group by ciudad;
 
-select ciudad, count(*) from visitantes group by ciudad asc;
+select ciudad, count(*) from visitantes group by ciudad  order by ciudad asc;
 
 
 #registros duplicados distinct
@@ -174,4 +174,4 @@ select * from productos;
 select proveedor from productos;
 select distinct proveedor from productos;
 
-select distinct proveedor from productos group by proveedor asc;
+select distinct proveedor from productos group by proveedor order by proveedor asc;
