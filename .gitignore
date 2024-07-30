@@ -8,3 +8,4 @@ bin/
 .sonarlint
 *.code-workspace
 .idea/
+assets/
