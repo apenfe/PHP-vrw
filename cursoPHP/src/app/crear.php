@@ -19,6 +19,11 @@
         <textarea name="bio" class="form-control"></textarea>
     </label>
     <br>
+    <label for="email">
+        Email:
+        <input type="email" name="email" class="form-control">
+    </label>
+    <br>
     <label for="image">
         Imagen:
         <input type="file" name="image" class="form-control">

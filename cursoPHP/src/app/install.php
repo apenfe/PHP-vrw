@@ -14,7 +14,29 @@ $sql = "CREATE TABLE IF NOT EXISTS users(
 
 $create_usuarios_table = mysqli_query($db,$sql);
 
+$sql1 = "insert into users values(null,'adrian','peñalver','esta es la biografia','a@a.com','".sha1('pass')."','1',null);";
+$sql2 = "insert into users values(null,'mario','casas','esta es la otra biografia','er@a.onion','".sha1('pass')."','1',null);";
+$sql3 = "insert into users values(null,'lucia','suegra','no tengo biografia','a@e.es','".sha1('pass')."','1',null);";
+
+$insert_user1 = mysqli_query($db,$sql1);
+$insert_user2 = mysqli_query($db,$sql2);
+$insert_user3 = mysqli_query($db,$sql3);
+
+mysqli_error($db);
+
 if($create_usuarios_table){
-    echo 'tabla creada correctamente';
+    echo 'tabla creada correctamente'.'<br>';
+}
+
+if($insert_user1){
+    echo 'dato insertado correctamente'.'<br>';
+}
+
+if($insert_user2){
+    echo 'dato insertado correctamente'.'<br>';
+}
+
+if($insert_user3){
+    echo 'dato insertado correctamente'.'<br>';
 }
 ?>
