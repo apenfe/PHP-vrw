@@ -18,6 +18,10 @@
 
         <h1>WEB CON PHP</h1>
         <hr/>
+
+        <a href="crear.php" class="btn btn-primary">Crear nuevo usuario</a>
+        <hr>
+
         <?php
         $variable_header = "contenido del header"; // sera visible para lo que este debajo verticalmente
         ?>
