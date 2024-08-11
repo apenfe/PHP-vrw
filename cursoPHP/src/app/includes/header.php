@@ -19,6 +19,7 @@
         <h1>WEB CON PHP</h1>
         <hr/>
 
+        <a href="index.php" class="btn btn-success">Volver a inicio</a>
         <a href="crear.php" class="btn btn-primary">Crear nuevo usuario</a>
         <hr>
 

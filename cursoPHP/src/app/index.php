@@ -21,6 +21,7 @@ $users = mysqli_query($db, "SELECT * FROM users;");
         <td><?= $row['email']?></td>
         <td>
             <a href="ver.php?id=<?=$row["usuario_id"]?>" class="btn btn-success">Ver</a>
+            <a href="editar.php?id=<?=$row["usuario_id"]?>" class="btn btn-warning">Editar</a>
         </td>
 
     </tr>
