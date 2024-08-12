@@ -69,15 +69,34 @@ if(isset($_POST["submit"])){
         $errors['role'] = 'El rol no es valido';
     }
 
+    $image = null;
     if(isset($_FILES['image'])  && !empty($_FILES['image']['tmp_name'])){
-        $role_validate = true;
-    }else{
-        $role_validate = false;
-        $errors['img'] = 'La imagen no es valida';
+
+        if(!is_dir("uploads")){
+            $dir = mkdir("uploads",0777,true);
+        }else{
+            $dir = true;
+        }
+
+        if($dir){
+            $filename = time().'-'.$_FILES['image']['name'];
+            $muf = move_uploaded_file($_FILES['image']['tmp_name'],"uploads/".$filename);
+
+            $image = $filename;
+
+            if($muf){
+                $image_upload =  true;
+            }else{
+                $image_upload =  false;
+                $errors['image'] = 'La imagena no se ha cargado bien';
+            }
+
+        }
+
     }
 
     if(count($errors)<=1){
-        $sql = "insert into users values(null,'{$_POST["name"]}','{$_POST["surname"]}','{$_POST["bio"]}','{$_POST["email"]}','".sha1($_POST["password"])."','{$_POST["role"]}',null);";
+        $sql = "insert into users values(null,'{$_POST["name"]}','{$_POST["surname"]}','{$_POST["bio"]}','{$_POST["email"]}','".sha1($_POST["password"])."','{$_POST["role"]}','{$image}');";
         $insert_user = mysqli_query($db, $sql);
         $insert_user = true;
     }else{

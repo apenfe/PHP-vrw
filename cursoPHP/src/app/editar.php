@@ -84,11 +84,30 @@ if(isset($_POST["submit"])){
         $errors['role'] = 'El rol no es valido';
     }
 
+    $image = null;
     if(isset($_FILES['image'])  && !empty($_FILES['image']['tmp_name'])){
-        $image_validate = true;
-    }else{
-        $image_validate = false;
-        $errors['img'] = 'La imagen no es valida';
+
+        if(!is_dir("uploads")){
+            $dir = mkdir("uploads",0777,true);
+        }else{
+            $dir = true;
+        }
+
+        if($dir){
+            $filename = time().'-'.$_FILES['image']['name'];
+            $muf = move_uploaded_file($_FILES['image']['tmp_name'],"uploads/".$filename);
+
+            $image = $filename;
+
+            if($muf){
+                $image_upload =  true;
+            }else{
+                $image_upload =  false;
+                $errors['image'] = 'La imagena no se ha cargado bien';
+            }
+
+        }
+
     }
 
     // actualizar usuario
@@ -98,6 +117,10 @@ if(isset($_POST["submit"])){
 
         if(isset($_POST["password"]) && !empty($_POST["password"])){
             $sql .= "password='".sha1($_POST["password"])."',";
+        }
+
+        if(isset($_FILES['image'])  && !empty($_FILES['image']['tmp_name'])){
+            $sql .= "imagen='{$image}',";
         }
 
         $sql .= "role='{$_POST["role"]}' WHERE usuario_id='{$user["usuario_id"]}';";
@@ -155,8 +178,13 @@ if(isset($_POST["submit"])){
     </label>
     <br>
     <label for="image">
-        Imagen:
+        Actualizar Imagen de perfil:
         <input type="file" name="image" class="form-control" >
+        Imagen de perfil:
+        <?php if($user['imagen'] != null){ ?>
+            <img src="uploads/<?php echo $user['imagen'] ?>" width="120"/>
+        <?php } ?>
+
     </label>
     <br>
     <label for="password">

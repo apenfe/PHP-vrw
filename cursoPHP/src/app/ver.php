@@ -15,16 +15,27 @@ if(!isset($user['usuario_id']) || empty($user['usuario_id'])){
 }
 ?>
 
-<h3>Usuario: <strong><?php echo $user['name']." ".$user['apellidos']; ?></strong></h3>
-<p>Datos:</p>
-<p>
-    Email: <?php echo $user['email']; ?><br>
-</p>
-<p>
-    Biografia: <?php echo $user['biografia']; ?><br>
-</p>
+<div class="col-lg-3">
 
-<hr>
-<a href="index.php" class="ntn btn-success">Volver a inicio</a>
+    <?php if($user['imagen'] != null){ ?>
+        <img src="uploads/<?php echo $user['imagen'] ?>" width="180"/>
+
+    <?php } ?>
+
+</div>
+<div class="col-lg-7">
+
+    <h3>Usuario: <strong><?php echo $user['name']." ".$user['apellidos']; ?></strong></h3>
+    <p>Datos:</p>
+    <p>
+        Email: <?php echo $user['email']; ?><br>
+    </p>
+    <p>
+        Biografia: <?php echo $user['biografia']; ?><br>
+    </p>
+
+</div>
+
+<a href="index.php" class="btn btn-success">Volver a inicio</a>
 
 <?php include 'includes/footer.php'; ?>
