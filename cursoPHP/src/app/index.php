@@ -23,6 +23,11 @@ $users = mysqli_query($db, "SELECT * FROM users;");
         <td>
             <a href="ver.php?id=<?=$row["usuario_id"]?>" class="btn btn-success">Ver</a>
             <a href="editar.php?id=<?=$row["usuario_id"]?>" class="btn btn-warning">Editar</a>
+
+            <?php if(isset($_SESSION['logged']) && $_SESSION['logged']['role'] == 'Administrador'){ ?>
+                <a href="borrar.php?id=<?=$row["usuario_id"]?>" class="btn btn-danger">Borrar</a>
+            <?php } ?>
+
         </td>
 
     </tr>
