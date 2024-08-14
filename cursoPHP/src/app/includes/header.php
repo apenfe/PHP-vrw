@@ -19,9 +19,19 @@
         <h1>WEB CON PHP</h1>
         <hr/>
 
-        <a href="index.php" class="btn btn-success">Volver a inicio</a>
-        <a href="crear.php" class="btn btn-primary">Crear nuevo usuario</a>
+        <?php if(isset($_SESSION['logged'])){  ?>
+
+            <div class="col-lg-10">
+                <a href="index.php" class="btn btn-success">Volver a inicio</a>
+                <a href="crear.php" class="btn btn-primary">Crear nuevo usuario</a>
+            </div>
+            <hr>
+            <div class="col-lg-2">
+                <?php echo "Bienvenido ".$_SESSION["logged"]['name']. " ". $_SESSION['logged']['apellidos']; ?>
+                <a href="logout.php" class="btn btn-danger">Cerrar sesion</a>
+            </div>
         <hr>
+        <?php } ?>
 
         <?php
         $variable_header = "contenido del header"; // sera visible para lo que este debajo verticalmente

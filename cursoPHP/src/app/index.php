@@ -1,4 +1,5 @@
 <?php
+include 'includes/redirect.php';
 include 'includes/header.php'; // si pongo require_once permite cargarlo solo una vez
 
 $users = mysqli_query($db, "SELECT * FROM users;");

@@ -1,3 +1,4 @@
+<?php include 'includes/redirect.php';?>
 <?php include 'includes/header.php'; ?>
 
 <?php
