@@ -16,6 +16,19 @@
         <input type="submit" value="enviar">
     </form>
 
+    <h1>Listado de imagenes</h1>
+    <?php
+    $gestor = opendir('./images');
+    if($gestor){
+        while(($imagen = readdir($gestor)) !== false){
+            if($imagen != "." && $imagen != ".."){
+                echo "<img src='images/$imagen' width='200px' height='200px'/>";
+            }
+        }
+        closedir($gestor);
+    }
+    ?>
+
 </body>
 
 </html>
