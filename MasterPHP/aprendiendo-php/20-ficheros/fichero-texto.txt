@@ -1,1 +1,12 @@
 HOLA SOY UN ARCHIVO DE TEXTO
+esta es la segunda linea
+esta es la tercera lineasoy un texto escrito en php
+soy un texto escrito en php
+soy un texto escrito en php
+soy un texto escrito en php
+soy un texto escrito en php
+soy un texto escrito en php
+soy un texto escrito en php
+soy un texto escrito en php
+soy un texto escrito en php
+soy un texto escrito en php
