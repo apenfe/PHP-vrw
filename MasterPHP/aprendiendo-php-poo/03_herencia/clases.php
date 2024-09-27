@@ -50,6 +50,17 @@ class Persona{
 
 class Informatico extends Persona{
 
+    public $lenguajes;
+
+    public function __construct(){
+        $this->lenguajes=["HTML, CSS, JS"];
+    }
+
+    public function sabeLenguajes($lenguajes){
+        $this->lenguajes = $lenguajes;
+        return $this->lenguajes;
+    }
+
     public function programar(){
         return "Soy programador";
     }
@@ -57,4 +68,19 @@ class Informatico extends Persona{
     public function repararOrdenador(){
         return "Reparo ordenadores";
     }
+}
+
+class TecnicoRedes extends Informatico{
+
+    public $auditarRedes;
+
+    public function __construct() {
+        parent::__construct();
+        $this->auditarRedes = "Estoy auditando una red";
+    }
+
+    public function auditoria(){
+        return "Estoy auditando una red";
+    }
+
 }
