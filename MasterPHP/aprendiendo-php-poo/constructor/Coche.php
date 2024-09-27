@@ -20,6 +20,11 @@ class Coche {
 
     }
 
+    // GENERAA METODO PARA SALUDAR DICIENDO EL NOMBRE DEL MODELO
+    public function saludar() {
+        return "Hola, soy un ".$this->modelo;
+    }
+
     // Métodos, son acciones que hace el objeto (funciones)
     public function getColor() {
         // Busca en esta clase la propiedad X
